@@ -5,3 +5,4 @@ phpcs.xml
 phpunit.xml.dist
 .php_cs_cache
 .env
+.idea

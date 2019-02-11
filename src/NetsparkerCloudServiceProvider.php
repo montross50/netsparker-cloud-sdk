@@ -39,9 +39,12 @@ class NetsparkerCloudServiceProvider extends ServiceProvider
 
             $httpClient = \Http\Discovery\HttpClientDiscovery::find();
             $plugins = [];
-            $uri = \Http\Discovery\UriFactoryDiscovery::find()->createUri(config('netsparker.url','https://www.netsparkercloud.com'));
+            $uri = \Http\Discovery\UriFactoryDiscovery::find()->createUri(config('netsparker.url'));
             $plugins[] = new \Http\Client\Common\Plugin\AddHostPlugin($uri);
-            $auth = new \Http\Message\Authentication\BasicAuth(config('netsparker.username'),config('netsparker.password'));
+            $auth = new \Http\Message\Authentication\BasicAuth(
+                config('netsparker.username'),
+                config('netsparker.password')
+            );
             $plugins[] = new \Http\Client\Common\Plugin\AuthenticationPlugin($auth);
             $httpClient = new \Http\Client\Common\PluginClient($httpClient, $plugins);
             return Client::create($httpClient);

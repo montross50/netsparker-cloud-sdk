@@ -8,4 +8,11 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         return [\Montross50\NetsparkerCloud\NetsparkerCloudServiceProvider::class];
     }
+
+    protected function getProperty($object, $key)
+    {
+        $reflection = new \ReflectionProperty($object, $key);
+        $reflection->setAccessible(true);
+        return $reflection->getValue($object);
+    }
 }

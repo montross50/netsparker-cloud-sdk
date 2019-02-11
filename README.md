@@ -1,4 +1,4 @@
-# netsparker-cloud-sdk
+# Netsparker Cloud PHP SDK
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -7,21 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
-
-## Structure
-
-If any of the following are applicable to your project, then the directory structure should follow industry best practices by being named the following.
-
-```
-bin/        
-config/
-src/
-tests/
-vendor/
-```
-
+This package creates an SDK to integrate with Netsparker Cloud. It is intended to work with Laravel. Hence the service provider. If someone really needs a non laravel version I could do that but this is my use case. The package uses [Jane Open Api](https://packagist.org/packages/jane-php/open-api) to generate the raw SDK. 
 
 ## Install
 
@@ -34,8 +20,8 @@ $ composer require montross50/netsparker-cloud-sdk
 ## Usage
 
 ``` php
-$skeleton = new montross50\netsparker-cloud-sdk();
-echo $skeleton->echoPhrase('Hello, League!');
+$api = app(NetsparkerCloudInterface::class);
+$result = $api->scansResult('foobar');
 ```
 
 ## Change log
@@ -44,6 +30,17 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
+The integration tests expect you to create a phpunit.xml.dist and place your credentials in the env.
+
+```xml
+    <php>
+        <env name="NETSPARKER_USERNAME" value="user"/>
+        <env name="NETSPARKER_PASSWORD" value="pass"/>
+        <env name="NETSPARKER_URL" value="url"/>
+        <env name="INTEGRATION_TEST_USER_EMAIL" value="api user email"/>
+        <env name="INTEGRATION_TEST_SCAN_ID" value="some scan id"/>
+    </php>
+```
 ``` bash
 $ composer test
 ```
