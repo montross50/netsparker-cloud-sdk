@@ -1,0 +1,60 @@
+{
+    "name": "montross50/netsparker-cloud-sdk",
+    "type": "library",
+    "description": "Netsparker cloud php sdk",
+    "keywords": [
+        "montross50",
+        "netsparker-cloud-sdk"
+    ],
+    "homepage": "https://github.com/montross50/netsparker-cloud-sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Trent Schmidt",
+            "email": "sch43228@gmail.com",
+            "homepage": "https://github.com/montross50",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~7.1",
+        "jane-php/open-api-runtime": "^4.0",
+        "illuminate/support": "5.7.*",
+        "php-http/discovery": "^1.4",
+        "php-http/client-implementation": "^1.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.7.3",
+        "jane-php/open-api": "^4.0",
+        "phpunit/phpunit": ">=7.0",
+        "orchestra/testbench": "~3.0",
+        "squizlabs/php_codesniffer": "^3.0",
+        "guzzlehttp/guzzle": "6.3.*",
+        "guzzlehttp/psr7": "^1.2",
+        "php-http/guzzle6-adapter": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Montross50\\NetsparkerCloud\\": "src",
+            "Montross50\\NetsparkerCloud\\SDK\\": "src/SDK"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Montross50\\NetsparkerCloud\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs src tests",
+        "fix-style": "phpcbf src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

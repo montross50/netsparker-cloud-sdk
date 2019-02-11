@@ -1,0 +1,7 @@
+<?php
+
+return [
+    'openapi-file' => 'https://www.netsparkercloud.com/swagger/docs/v1',
+    'namespace' => 'Montross50\NetsparkerCloud\SDK',
+    'directory' => __DIR__ . '/src/SDK',
+];
